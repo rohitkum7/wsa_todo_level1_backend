@@ -17,12 +17,12 @@ const newTask = async (req, res) => {
     }
 
     // create document based on our schema
-    await Task.create({ title, description, due_date });
+    const newTask = await Task.create({ title, description, due_date });
 
     res.status(200).json({
       success: true,
       message: "Created",
-      task: newTask,
+      tasks: newTask,
     });
   } catch (error) {
     res.status(400).json({
